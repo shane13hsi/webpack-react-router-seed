@@ -11,8 +11,7 @@ var webpack = require('webpack');
 var loaders = {
     'css': '',
     'less': '!less-loader',
-    'scss|sass': '!sass-loader',
-    'styl': '!stylus-loader'
+    'scss|sass': '!sass-loader'
 };
 
 /**
