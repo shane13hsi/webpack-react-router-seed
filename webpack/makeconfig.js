@@ -102,6 +102,9 @@ module.exports = function (isDevelopment) {
                 // 这个 plugin 的作用是定义些全局变量，开发时用
                 new webpack.DefinePlugin({
                     // JSON.stringify() 方法可以将任意的 JavaScript 值序列化成 JSON 字符串。
+                    'process.env': {
+                        'NODE_ENV': isDevelopment ? JSON.stringify('development') : JSON.stringify('production')
+                    }
                 })
             ];
             if (isDevelopment)
