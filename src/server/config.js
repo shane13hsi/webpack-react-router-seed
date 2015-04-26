@@ -1,10 +1,7 @@
 // 服务端的配置
 module.exports = {
-    appLocales: ['en', 'fr'],
-    defaultLocale: 'en',
     // 这个可以替换成其他的 GA
     googleAnalyticsId: 'UA-XXXXXXX-X',
-    isProduction: process.env.NODE_ENV === 'production',
     piping: {
         // Ignore webpack custom loaders on server. TODO: Reuse index.js config.
         ignore: /(\/\.|~$|\.(css|less|sass|scss|styl))/,
