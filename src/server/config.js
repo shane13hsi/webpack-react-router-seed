@@ -1,7 +1,5 @@
 // 服务端的配置
 module.exports = {
-    // 这个可以替换成其他的 GA
-    googleAnalyticsId: 'UA-XXXXXXX-X',
     piping: {
         // Ignore webpack custom loaders on server. TODO: Reuse index.js config.
         ignore: /(\/\.|~$|\.(css|less|sass|scss|styl))/,
@@ -10,6 +8,5 @@ module.exports = {
         hook: true
     },
     port: process.env.PORT || 8000,
-    version: require('../../package').version,
     webpackStylesExtensions: ['css', 'less', 'sass', 'scss', 'styl']
 };
