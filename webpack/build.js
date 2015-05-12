@@ -8,13 +8,13 @@ var gutil = require('gulp-util');
 /**
  * - webpackConfig 参数是 webpack config
  * */
-module.exports = function (webpackConfig) {
-    return function (callback) {
+module.exports = function(webpackConfig) {
+    return function(callback) {
         /**
          * webpack(config, func)
          * func(error, stats)
          * */
-        webpack(webpackConfig, function (fatalError, stats) {
+        webpack(webpackConfig, function(fatalError, stats) {
             var jsonStats = stats.toJson();
             var buildError = fatalError || jsonStats.errors[0] || jsonStats.warnings[0];
 

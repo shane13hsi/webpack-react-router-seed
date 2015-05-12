@@ -6,7 +6,7 @@ import express from 'express';
 // import favicon from 'serve-favicon';
 import path from 'path';
 
-export default function () {
+export default function() {
 
     const app = express();
 
@@ -17,8 +17,8 @@ export default function () {
     app.use('/build', express.static('build'));
     app.use('/assets', express.static('assets'));
 
-    app.get('/', function (req, res) {
-        res.sendFile(path.join(__dirname, "/index.html"));
+    app.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname, '/index.html'));
     });
 
     app.listen(config.port);

@@ -25,7 +25,7 @@ gulp.task('build-webpack-dev', webpackDevServer(makeWebpackConfig(true)));
 gulp.task('build-webpack', [args.production ? 'build-webpack-production' : 'build-webpack-dev']);
 gulp.task('build', ['build-webpack']);
 
-gulp.task('eslint', function () {
+gulp.task('eslint', function() {
     return gulp.src([
         'gulpfile.js',
         'src/**/*.js',
@@ -36,7 +36,7 @@ gulp.task('eslint', function () {
         .pipe(eslint.failOnError());
 });
 
-gulp.task('jest', function (done) {
+gulp.task('jest', function(done) {
     var rootDir = './src';
     jest.runCLI({
         config: {
@@ -45,16 +45,16 @@ gulp.task('jest', function (done) {
             'testFileExtensions': ['es6', 'js'],
             'moduleFileExtensions': ['js', 'json', 'es6']
         }
-    }, rootDir, function (success) {
+    }, rootDir, function(success) {
         /* eslint no-process-exit:0 */
         done(success ? null : 'jest failed');
-        process.on('exit', function () {
+        process.on('exit', function() {
             process.exit(success ? 0 : 1);
         });
     });
 });
 
-gulp.task('test', function (done) {
+gulp.task('test', function(done) {
     // Run test tasks serially, because it doesn't make sense to build when tests
     // are not passing, and it doesn't make sense to run tests, if lint has failed.
     // Gulp deps aren't helpful, because we want to run tasks without deps as well.

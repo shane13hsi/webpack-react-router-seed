@@ -17,14 +17,14 @@ var loaders = {
 /**
  * - isDevelopment 是否是 dev
  * */
-module.exports = function (isDevelopment) {
+module.exports = function(isDevelopment) {
 
     /**
      * return 数组，item 是 {loader: 串联的webpack loaders, test: 正则表达式}
      * */
     function stylesLoaders() {
         // Object.keys，拿到 loaders 的 key 组成的数组
-        return Object.keys(loaders).map(function (ext) {
+        return Object.keys(loaders).map(function(ext) {
             // An autoprefixer loader for webpack.
             var prefix = 'css-loader!autoprefixer-loader?browsers=last 2 version';
             // 串联
@@ -66,7 +66,7 @@ module.exports = function (isDevelopment) {
             }, {
                 exclude: /node_modules/,
                 loaders: isDevelopment ? [
-                    'react-hot', 'babel-loader'
+                    'babel-loader', 'react-hot'
                 ] : [
                     'babel-loader'
                 ],
@@ -81,7 +81,7 @@ module.exports = function (isDevelopment) {
             path: 'build/',
             filename: '[name].js'
         },
-        plugins: (function () {
+        plugins: (function() {
             var plugins = [
                 // 这个 plugin 的作用是定义些全局变量，开发时用
                 new webpack.DefinePlugin({

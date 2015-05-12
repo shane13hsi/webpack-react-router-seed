@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PropTypes } from 'react';
 import DocumentTitle from 'react-document-title';
 import { RouteHandler } from 'react-router';
