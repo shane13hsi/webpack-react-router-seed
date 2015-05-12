@@ -66,7 +66,7 @@ module.exports = function(isDevelopment) {
             }, {
                 exclude: /node_modules/,
                 loaders: isDevelopment ? [
-                    'babel-loader', 'react-hot'
+                    'react-hot', 'babel-loader'
                 ] : [
                     'babel-loader'
                 ],
