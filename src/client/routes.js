@@ -3,6 +3,5 @@ import React from 'react';
 import { Route } from 'react-router';
 
 export default (
-    <Route name='app' path='/' handler={App}>
-    </Route>
+    <Route handler={App} name='app' path='/'/>
 );

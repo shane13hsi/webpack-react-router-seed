@@ -12,6 +12,7 @@ const App = React.createClass({
         return (
             <DocumentTitle title='Sample App'>
                 <div className='App'>
+                    <h2>Sample App</h2>
                     <RouteHandler {...this.props} />
                 </div>
             </DocumentTitle>
