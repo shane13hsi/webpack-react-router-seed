@@ -64,13 +64,11 @@ gulp.task('browserSync', ['build-webpack-sync'], function() {
         browser: ['google-chrome']
     });
 
+    gulp.watch(['src/client/**/*.*'], ['build-webpack-sync']);
+
     gulp.watch(['build/**/*.*'], function(file) {
         browserSync.reload(path.relative(__dirname, file.path));
     });
 });
 
-gulp.task('watch', function(){
-    gulp.watch(['src/client/**/*.*'], ['build-webpack-sync']);
-});
-
-gulp.task('sync', ['env', 'browserSync', 'watch'], bg('node', 'src/server/sync'));
+gulp.task('sync', ['env', 'browserSync'], bg('node', 'src/server/sync'));
