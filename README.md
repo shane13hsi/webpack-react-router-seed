@@ -1,6 +1,6 @@
 # webpack-react-router-seed
 
-A seed project to get free of wiring up wepack, gulp, react, react-router.
+A seed project to get free of wiring up webpack, gulp, webpack-dev-server, react-hot-reload, browser-sync, react, react-router.
  
 ## gulp tasks
 
