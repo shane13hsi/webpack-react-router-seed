@@ -36,11 +36,17 @@ module.exports = {
             'webpack/hot/only-dev-server',
             './src/client/main.js'
         ],
-        vendors: ['react/addons']
+        vendors: [
+            'moment',
+            'react/addons',
+            'react-router',
+            'react-document-title',
+            'underscore'
+        ]
     },
 
     output: {
-        path: path.resolve(__dirname, '../build'),
+        path: path.resolve(__dirname, './build'),
         filename: '[name].js',
         publicPath: 'http://localhost:8888/build/'
     },

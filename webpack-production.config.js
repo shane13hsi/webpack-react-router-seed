@@ -38,11 +38,17 @@ module.exports = {
     devtool: '',
     entry: {
         app: ['./src/client/main.js'],
-        vendors: ['react/addons']
+        vendors: [
+            'moment',
+            'react/addons',
+            'react-router',
+            'react-document-title',
+            'underscore'
+        ]
     },
 
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, './dist/js'),
         filename: '[name].js'
     },
 
@@ -67,10 +73,10 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendor.js'),
         // Render styles into separate cacheable file to prevent FOUC and
         // optimize for critical rendering path.
-        new ExtractTextPlugin('app.css', {
+        new ExtractTextPlugin('./dist/css', {
             allChunks: true
         }),
         // Search for equal or similar files and deduplicate them in the output.
