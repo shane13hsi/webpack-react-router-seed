@@ -39,7 +39,6 @@ module.exports = function(isDevelopment) {
         cache: isDevelopment,   // watch mode 默认为 true
         debug: isDevelopment,
         devtool: isDevelopment ? 'eval' : '',    // Each module is executed with eval and a SourceMap is added as DataUrl to the eval
-
         entry: {
             app: isDevelopment ? [
                 'webpack-dev-server/client?http://localhost:8888',
