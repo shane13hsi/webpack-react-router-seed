@@ -3,9 +3,8 @@
 import compression from 'compression';
 import config from './config';
 import express from 'express';
-import path from 'path';
 
-export default function() {
+export default function(param) {
 
     const app = express();
 
@@ -14,7 +13,7 @@ export default function() {
     app.use('/assets', express.static('assets'));
 
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, '/index.html'));
+        res.sendFile(param.indexHtmlPath);
     });
 
     app.listen(config.port);
