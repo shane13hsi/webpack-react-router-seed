@@ -5,7 +5,8 @@
 var bg = require('gulp-bg');
 var eslint = require('gulp-eslint');
 var gulp = require('gulp');
-var makeWebpackConfig = require('./webpack/makeconfig');
+var WebpackConfig = require('./webpack.config');
+var WebpackProductionConfig = require('./webpack-production.config');
 var webpackBuild = require('./webpack/build');
 var webpackDevServer = require('./webpack/devserver');
 var yargs = require('yargs');
@@ -18,8 +19,8 @@ gulp.task('env', function() {
     process.env.NODE_ENV = args.production ? 'production' : 'development';
 });
 
-gulp.task('build-webpack-production', webpackBuild(makeWebpackConfig(false)));
-gulp.task('build-webpack-dev', webpackDevServer(makeWebpackConfig(true)));
+gulp.task('build-webpack-production', webpackBuild(WebpackProductionConfig));
+gulp.task('build-webpack-dev', webpackDevServer(WebpackConfig));
 gulp.task('build-webpack', [args.production ? 'build-webpack-production' : 'build-webpack-dev']);
 gulp.task('build', ['build-webpack']);
 
