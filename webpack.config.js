@@ -35,13 +35,6 @@ module.exports = {
             // https://github.com/webpack/webpack/issues/418#issuecomment-54288041
             'webpack/hot/only-dev-server',
             './src/client/main.js'
-        ],
-        vendors: [
-            'moment',
-            'react/addons',
-            'react-router',
-            'react-document-title',
-            'underscore'
         ]
     },
 
@@ -72,7 +65,6 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('development')
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
         NotifyPlugin,
         new webpack.HotModuleReplacementPlugin(),
         // Tell reloader to not reload if there is an error.
