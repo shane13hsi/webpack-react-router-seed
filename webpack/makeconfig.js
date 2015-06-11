@@ -3,9 +3,9 @@
 'use strict';
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var NotifyPlugin      = require('./notifyplugin');
-var path              = require('path');
-var webpack           = require('webpack');
+var NotifyPlugin = require('./notifyplugin');
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = function(isDevelopment) {
     /**
@@ -48,7 +48,8 @@ module.exports = function(isDevelopment) {
                 './src/client/main.js'
             ] : [
                 './src/client/main.js'
-            ]
+            ],
+            vendors: ['react/addons']
         },
 
         output: isDevelopment ? {
@@ -83,7 +84,8 @@ module.exports = function(isDevelopment) {
                     'process.env': {
                         'NODE_ENV': isDevelopment ? JSON.stringify('development') : JSON.stringify('production')
                     }
-                })
+                }),
+                new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
             ];
             if (isDevelopment)
                 plugins.push(
