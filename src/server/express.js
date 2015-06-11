@@ -16,6 +16,8 @@ export default function(param) {
         res.sendFile(param.indexHtmlPath);
     });
 
+    require('./apis')(app);
+
     app.listen(config.port);
 
     console.log(`App started on port ${config.port}`);
