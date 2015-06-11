@@ -52,11 +52,11 @@ module.exports = function(isDevelopment) {
         },
 
         output: isDevelopment ? {
-            path: path.resolve(__dirname, 'build'),
+            path: path.resolve(__dirname, '../build'),
             filename: '[name].js',
             publicPath: 'http://localhost:8888/build/'
         } : {
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, '../dist'),
             filename: '[name].js'
         },
 
