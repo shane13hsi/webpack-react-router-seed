@@ -33,9 +33,9 @@ function stylesLoaders() {
 }
 
 module.exports = {
-    cache: false,   // watch mode 默认为 true
-    debug: false,
-    devtool: '',
+    cache: true,   // watch mode 默认为 true
+    debug: true,
+    devtool: 'eval',
     entry: {
         app: ['./src/client/main.js'],
         vendors: [
@@ -73,6 +73,7 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
+        NotifyPlugin,
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendor.js'),
         // Render styles into separate cacheable file to prevent FOUC and
         // optimize for critical rendering path.
