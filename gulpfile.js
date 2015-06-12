@@ -10,6 +10,7 @@ var WebpackConfig = require('./webpack-dev.config');
 var WebpackProductionConfig = require('./webpack-production.config');
 var WebpackSyncConfig = require('./webpack-sync.config');
 var webpackBuild = require('./webpack/build');
+var webpackBuildSync = require('./webpack/buildSync');
 var webpackDevServer = require('./webpack/devserver');
 var yargs = require('yargs');
 var path = require('path');
@@ -23,7 +24,7 @@ gulp.task('env', function() {
 });
 
 gulp.task('build-webpack-production', webpackBuild(WebpackProductionConfig));
-gulp.task('build-webpack-sync', webpackBuild(WebpackSyncConfig));
+gulp.task('build-webpack-sync', webpackBuildSync(WebpackSyncConfig));
 gulp.task('build-webpack-dev', webpackDevServer(WebpackConfig));
 gulp.task('build-webpack', [args.production ? 'build-webpack-production' : 'build-webpack-dev']);
 gulp.task('build', ['build-webpack']);
