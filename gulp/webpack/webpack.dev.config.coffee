@@ -1,4 +1,5 @@
-config = require('./gulp/webpack/webpack.common.config.coffee')
+config = require('./webpack.common.config.coffee')
+constants = require('../constants.coffee')
 _ = require('underscore')
 path = require('path')
 webpack = require('webpack')
@@ -10,11 +11,11 @@ module.exports = _.extend(config, {
     app: [
       'webpack-dev-server/client?http://localhost:8888'
       'webpack/hot/only-dev-server'
-      './src/client/main.js'
+      path.join(constants.SRC_DIR, 'client/main.js')
     ]
 
   output:
-    path: path.join __dirname, './build'
+    path: constants.BUILD_DIR,
     filename: '[name].js'
     publicPath: 'http://localhost:8888/build'
 
