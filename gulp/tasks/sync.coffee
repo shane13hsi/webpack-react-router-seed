@@ -1,6 +1,10 @@
 gulp = require('gulp')
 bg = require('gulp-bg')
 browserSync = require('browser-sync')
+build = require('../webpack/build.coffee')
+WebpackSyncConfig = require('../webpack/webpack.sync.config.coffee');
+
+gulp.task('build-webpack-sync', build(WebpackSyncConfig))
 
 gulp.task 'browserSync', ['build-webpack-sync'], ->
   browserSync.init
