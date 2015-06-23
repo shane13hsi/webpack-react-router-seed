@@ -1,9 +1,11 @@
 gulp = require('gulp')
 eslint = require('gulp-eslint')
+path = require('path')
+constants = require('../constants.coffee')
 
 gulp.task 'eslint', ->
   gulp.src([
-    'src/**/*.js'
+    path.join(constants.SRC_DIR, '**/*.js')
   ])
   .pipe(eslint())
   .pipe(eslint.format())
