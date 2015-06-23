@@ -1,6 +1,6 @@
 gulp = require('gulp')
 bg = require('gulp-bg')
-webpackDevServer = require('./devserver.coffee')
+webpackDevServer = require('../webpack/devserver.coffee')
 WebpackConfig = require('../../webpack.dev.config.coffee');
 
 gulp.task('build-webpack-dev', webpackDevServer(WebpackConfig))

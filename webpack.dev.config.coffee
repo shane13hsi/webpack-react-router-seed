@@ -1,4 +1,4 @@
-config = require('./webpack.common.config.coffee')
+config = require('./gulp/webpack/webpack.common.config.coffee')
 _ = require('underscore')
 path = require('path')
 webpack = require('webpack')

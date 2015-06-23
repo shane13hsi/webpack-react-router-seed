@@ -1,5 +1,5 @@
 webpack = require('webpack')
-NotifyPlugin = require('./webpack/notifyplugin')
+NotifyPlugin = require('./notifyplugin')
 
 module.exports =
   module:
