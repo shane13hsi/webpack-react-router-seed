@@ -12,4 +12,14 @@ A seed project to get free of wiring up webpack, gulp, webpack-dev-server, react
 
 `gulp build-webpack-production` - build production-ready files into `dist/`
 
+#### todo
+
+- refine webpack config
+- webpack/gulp written in coffee. Nothing but to save type times.
+- apply to airbnb eslint
+- test flow
+- integration test
+- [optional] flow
+
+
 
