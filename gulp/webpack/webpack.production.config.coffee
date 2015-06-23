@@ -6,6 +6,10 @@ webpack = require('webpack')
 
 module.exports = _.extend(config, {
 
+  cache: false
+  debug: false
+  devtool: ''
+
   entry:
     app: [
       path.join(constants.SRC_DIR, 'client/main.js')

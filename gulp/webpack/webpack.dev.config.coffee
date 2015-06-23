@@ -5,8 +5,10 @@ path = require('path')
 webpack = require('webpack')
 
 module.exports = _.extend(config, {
-  devtool: 'eval'
-
+  cache: true
+  debug: true
+  devtool: ''
+  
   entry:
     app: [
       'webpack-dev-server/client?http://localhost:8888'

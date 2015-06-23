@@ -20,7 +20,6 @@ gulp.task 'browserSync', ['build-webpack-sync'], ->
     browserSync.reload(path.relative(__dirname, file.path)))
 
 gulp.task('sync', [
-    'env'
     'browserSync'
   ],
   bg('node', 'src/server/sync'))
