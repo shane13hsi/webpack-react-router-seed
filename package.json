@@ -22,6 +22,7 @@
     "babel-eslint": "^3.0.1",
     "babel-loader": "^5.0.0",
     "browser-sync": "^2.7.7",
+    "coffee-script": "^1.9.3",
     "compression": "^1.4.0",
     "css-loader": "^0.14.2",
     "del": "^1.1.1",
