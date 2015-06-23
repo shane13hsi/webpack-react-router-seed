@@ -42,7 +42,7 @@ module.exports = _.extend(config, {
     new webpack.optimize.OccurenceOrderPlugin()
     new webpack.optimize.UglifyJsPlugin(
       compress:
-        warning: false)
+        warnings: false)
   ]
 })
 
