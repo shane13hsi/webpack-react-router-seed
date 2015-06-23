@@ -1,5 +1,3 @@
-/* @flow weak */
-
 'use strict';
 
 var gutil = require('gulp-util');

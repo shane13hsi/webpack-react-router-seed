@@ -1,5 +1,3 @@
-/* @flow weak */
-
 'use strict';
 
 var notifier = require('node-notifier');

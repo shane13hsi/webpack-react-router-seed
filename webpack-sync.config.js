@@ -5,23 +5,6 @@ var NotifyPlugin = require('./webpack/notifyplugin');
 var path = require('path');
 var webpack = require('webpack');
 
-function stylesLoaders() {
-    var loaders = {
-        'css': '',
-        'less': '!less-loader',
-        'scss|sass': '!sass-loader'
-    };
-    return Object.keys(loaders).map(function(ext) {
-        var prefix = 'css-loader!autoprefixer-loader?browsers=last 2 version';
-        var extLoaders = prefix + loaders[ext];
-        var loader = ExtractTextPlugin.extract('style-loader', extLoaders);
-        return {
-            loader: loader,
-            test: new RegExp('\\.(' + ext + ')$')
-        };
-    });
-}
-
 module.exports = {
     cache: true,
     debug: true,
@@ -44,15 +27,12 @@ module.exports = {
 
     module: {
         loaders: [{
-            loader: 'url-loader?limit=100000',
-            test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/
-        }, {
             exclude: /node_modules/,
             loaders: [
                 'babel-loader'
             ],
             test: /\.js$/
-        }].concat(stylesLoaders())
+        }]
     },
 
     plugins: [
