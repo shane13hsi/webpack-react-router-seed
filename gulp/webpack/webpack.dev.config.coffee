@@ -1,14 +1,13 @@
-config = require('./webpack.common.config.coffee')
 constants = require('../constants.coffee')
-_ = require('underscore')
 path = require('path')
 webpack = require('webpack')
+NotifyPlugin = require('./notifyplugin')
 
-module.exports = _.extend(config, {
+module.exports =
   cache: true
   debug: true
   devtool: ''
-  
+
   entry:
     app: [
       'webpack-dev-server/client?http://localhost:8888'
@@ -21,16 +20,24 @@ module.exports = _.extend(config, {
     filename: '[name].js'
     publicPath: 'http://localhost:8888/build'
 
+  resolve:
+    extensions: [
+      ''
+      '.js'
+      '.json'
+    ]
+
   module:
     loaders: [
       loaders: ['react-hot', 'babel-loader']
       test: /\.js$/
       exclude: /node_modules/
     ]
+    noParse: /\.min\.js/
 
   plugins: [
+    NotifyPlugin
     new webpack.HotModuleReplacementPlugin()
     new webpack.NoErrorsPlugin()
   ]
-})
 

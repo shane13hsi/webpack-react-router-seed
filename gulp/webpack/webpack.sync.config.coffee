@@ -1,14 +1,13 @@
-config = require('./webpack.common.config.coffee')
 constants = require('../constants.coffee')
-_ = require('underscore')
 path = require('path')
 webpack = require('webpack')
+NotifyPlugin = require('./notifyplugin')
 
-module.exports = _.extend(config, {
+module.exports =
   cache: true
   debug: true
   devtool: ''
-  
+
   entry:
     app: [
       path.join(constants.SRC_DIR, 'client/main.js')
@@ -25,18 +24,26 @@ module.exports = _.extend(config, {
     path: path.join(constants.BUILD_DIR, 'js'),
     filename: '[name].js'
 
+  resolve:
+    extensions: [
+      ''
+      '.js'
+      '.json'
+    ]
+
   module:
     loaders: [
       loaders: ['babel-loader']
       test: /\.js$/
       exclude: /node_modules/
     ]
+    noParse: /\.min\.js/
 
   plugins: [
+    NotifyPlugin
     new webpack.DefinePlugin(
       'process.env':
         'NODE_ENV': JSON.stringify('development'))
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendor.js')
   ]
-})
 
