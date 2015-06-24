@@ -16,7 +16,7 @@ A seed project to get free of wiring up webpack, gulp, webpack-dev-server, react
 
 - √ refine webpack config
 - √ webpack/gulp written in coffee. Nothing but to save type times.
-- apply to airbnb eslint
+- √ apply to airbnb eslint
 - test flow
 - integration test
 - [optional] flow
