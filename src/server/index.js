@@ -5,11 +5,5 @@ if (require('piping')(config.piping)) {
 
   require('babel/register');
 
-  // To ignore webpack custom loaders on server.
-  config.webpackStylesExtensions.forEach((ext) => {
-    require.extensions['.' + ext] = () => {
-    };
-  });
-
   require('./main');
 }
