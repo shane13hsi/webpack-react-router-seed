@@ -1,3 +1,3 @@
 module.exports = function(app) {
-    require('./json/common')(app);
+  require('./json/common')(app);
 };

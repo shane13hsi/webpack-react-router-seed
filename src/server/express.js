@@ -6,19 +6,19 @@ import express from 'express';
 
 export default function(param) {
 
-    const app = express();
+  const app = express();
 
-    app.use(compression());
-    app.use('/build', express.static('build'));
-    app.use('/assets', express.static('assets'));
+  app.use(compression());
+  app.use('/build', express.static('build'));
+  app.use('/assets', express.static('assets'));
 
-    app.get('/', function(req, res) {
-        res.sendFile(param.indexHtmlPath);
-    });
+  app.get('/', function(req, res) {
+    res.sendFile(param.indexHtmlPath);
+  });
 
-    require('./apis')(app);
+  require('./apis')(app);
 
-    app.listen(config.port);
+  app.listen(config.port);
 
-    console.log(`App started on port ${config.port}`);
+  console.log(`App started on port ${config.port}`);
 }
