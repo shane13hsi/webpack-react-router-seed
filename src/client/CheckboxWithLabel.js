@@ -1,13 +1,13 @@
+import React from 'react';
 
-var React = require('react/addons');
-var CheckboxWithLabel = React.createClass({
-  getInitialState: function() {
-    return { isChecked: false };
+export default React.createClass({
+  getInitialState() {
+    return {isChecked: false};
   },
-  onChange: function() {
+  onChange() {
     this.setState({isChecked: !this.state.isChecked});
   },
-  render: function() {
+  render() {
     return (
       <label>
         <input
@@ -20,4 +20,3 @@ var CheckboxWithLabel = React.createClass({
     );
   }
 });
-module.exports = CheckboxWithLabel;
