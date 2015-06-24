@@ -16,7 +16,6 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^2.0.0",
     "babel": "^5.0.8",
     "babel-core": "^5.0.8",
     "babel-eslint": "^3.0.1",
@@ -27,6 +26,7 @@
     "css-loader": "^0.14.2",
     "del": "^1.1.1",
     "eslint": "^0.22.1",
+    "eslint-config-airbnb": "0.0.6",
     "eslint-plugin-react": "^2.0.1",
     "express": "^4.11.2",
     "extract-text-webpack-plugin": "^0.8.0",
@@ -35,17 +35,11 @@
     "gulp-bg": "0.0.5",
     "gulp-eslint": "^0.13.0",
     "gulp-util": "^3.0.2",
-    "less": "^2.5.1",
-    "less-loader": "^2.0.0",
     "node-notifier": "^4.1.0",
-    "node-sass": "^3.1.2",
     "normalize.css": "^3.0.2",
     "piping": "0.1.6",
     "react-hot-loader": "^1.1.4",
     "require-dir": "^0.3.0",
-    "sass-loader": "^1.0.0",
-    "style-loader": "^0.12.0",
-    "url-loader": "^0.5.5",
     "webpack": "^1.9.5",
     "webpack-dev-server": "^1.7.0",
     "yargs": "^3.3.1"
