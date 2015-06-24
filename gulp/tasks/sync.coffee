@@ -1,13 +1,15 @@
 gulp = require('gulp')
 bg = require('gulp-bg')
-browserSync = require('browser-sync')
+bs = require('browser-sync').create()
+path = require('path')
+constants = require('../constants.coffee')
 build = require('../webpack/build.coffee')
 WebpackSyncConfig = require('../webpack/webpack.sync.config.coffee');
 
 gulp.task('build-webpack-sync', build(WebpackSyncConfig))
 
 gulp.task 'browserSync', ['build-webpack-sync'], ->
-  browserSync.init
+  bs.init
     logPrefix: 'WRRS'
     notify: false
     https: false
@@ -15,9 +17,12 @@ gulp.task 'browserSync', ['build-webpack-sync'], ->
     port: 3000
     browser: ['google-chrome']
 
-  gulp.watch(['src/client/**/*.*'], ['build-webpack-sync'])
-  gulp.watch(['build/**/*.*'], (file) ->
-    browserSync.reload(path.relative(__dirname, file.path)))
+  gulp.watch([path.join(constants.SRC_DIR, 'client/**/*.*')], ['build-webpack-sync'])
+
+  gulp.watch([path.join(constants.BUILD_DIR, '**/*.*')], (file) ->
+    bs.reload(path.relative(__dirname, file.path))
+  )
+
 
 gulp.task('sync', [
     'browserSync'
