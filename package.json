@@ -42,6 +42,7 @@
     "babel-eslint": "^3.1.18",
     "babel-loader": "^5.1.4",
     "browser-sync": "^2.7.12",
+    "coffee-react": "^3.2.0",
     "coffee-script": "^1.9.3",
     "compression": "^1.5.0",
     "css-loader": "^0.15.1",
