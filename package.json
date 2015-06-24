@@ -7,6 +7,21 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "scriptPreprocessor": "preprocessor.js",
+    "testFileExtensions": [
+      "coffee",
+      "litcoffee",
+      "coffee.md",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "coffee",
+      "litcoffee",
+      "coffee.md",
+      "js"
+    ]
+  },
   "dependencies": {
     "moment": "^2.10.3",
     "react": "^0.13.1",
