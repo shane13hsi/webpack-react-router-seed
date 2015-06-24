@@ -1,5 +1,5 @@
-module.exports = function(app) {
-  app.get('/msg/', function(req, res) {
+module.exports = (app) => {
+  app.get('/msg/', (req, res) => {
     res.json(require('./common/msg.json'));
   });
 };

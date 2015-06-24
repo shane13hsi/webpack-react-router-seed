@@ -12,7 +12,7 @@ export default function(param) {
   app.use('/build', express.static('build'));
   app.use('/assets', express.static('assets'));
 
-  app.get('/', function(req, res) {
+  app.get('/', (req, res) => {
     res.sendFile(param.indexHtmlPath);
   });
 
