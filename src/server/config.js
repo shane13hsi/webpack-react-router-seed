@@ -5,5 +5,5 @@ module.exports = {
     // Server restarting invalidates require cache, no more stale html.
     hook: true
   },
-  port: process.env.PORT || 8000,
+  port: process.env.PORT || 8000
 };
