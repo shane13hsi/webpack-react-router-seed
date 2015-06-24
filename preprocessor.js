@@ -1,5 +1,5 @@
-var coffee = require('coffee-script');
-var babel = require("babel-core");
+var coffee = require('coffee-react');
+var babel = require('babel-core');
 
 module.exports = {
   process: function(src, path) {
