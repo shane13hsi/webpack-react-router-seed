@@ -1,27 +1,30 @@
 var coffee = require('coffee-react');
 var babel = require('babel-core');
 
+function to6(src) {
+  return babel.transform(src, {
+    filename: src,
+    stage: 2,
+    retainLines: true,
+    auxiliaryCommentBefore: 'istanbul ignore next'
+  }).code;
+}
+
 module.exports = {
   process: function(src, path) {
+    var compiled_to_js, compiled_to_react;
+
     // CoffeeScript files can be .coffee, .litcoffee, or .coffee.md
     if (coffee.helpers.isCoffee(path)) {
-      return coffee.compile(src, {'bare': true});
+      compiled_to_js = coffee.compile(src, {'bare': true});
+      compiled_to_react = to6(compiled_to_js);
+      return compiled_to_react;
     }
 
-    // Allow the stage to be configured by an environment
-    // variable, but use Babel's default stage (2) if
-    // no environment variable is specified.
-    var stage = process.env.BABEL_JEST_STAGE || 2;
-    // Ignore all files within node_modules
-    // babel files can be .js, .es, .jsx or .es6
-    if (path.indexOf("node_modules") === -1 && babel.canCompile(path)) {
-      return babel.transform(src, {
-        filename: path,
-        stage: stage,
-        retainLines: true,
-        auxiliaryCommentBefore: "istanbul ignore next"
-      }).code;
+    if (path.indexOf('node_modules') === -1 && babel.canCompile(path)) {
+      return to6(src);
     }
+
     return src;
   }
 };
