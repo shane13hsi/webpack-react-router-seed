@@ -13,7 +13,5 @@ if (require('piping')(config.piping)) {
         };
     });
 
-    express({
-        indexHtmlPath: path.join(__dirname, '/index.html')
-    });
+    require('./main');
 }
