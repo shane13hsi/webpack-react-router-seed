@@ -14,7 +14,6 @@ module.exports =
       path.join(constants.SRC_DIR, 'client/main.js')
     ]
     vendors: [
-      'moment'
       'react'
       'react-router'
       'react-document-title'
