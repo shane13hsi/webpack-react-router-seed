@@ -8,11 +8,12 @@ describe 'CheckboxWithLabel', ->
     CheckboxWithLabel = require '../CheckboxWithLabel.js'
 
     shallowRenderer = TestUtils.createRenderer()
-    shallowRenderer.render(
-      React.createElement CheckboxWithLabel,
-        labelOn: 'On'
-        labelOff: 'Off'
-    )
+#    shallowRenderer.render(
+#      React.createElement CheckboxWithLabel,
+#        labelOn: 'On'
+#        labelOff: 'Off'
+#    )
+    shallowRenderer.render `(<CheckboxWithLabel labelOn="On" labelOff="Off"/>)`
 
     component = shallowRenderer.getRenderOutput()
     expect(component.type).toBe 'label'
