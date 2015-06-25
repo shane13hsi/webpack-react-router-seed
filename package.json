@@ -2,7 +2,7 @@
   "name": "seed",
   "description": "",
   "author": "Shane Hsi<shane13hsi@gmail.com>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "engines": {
     "node": "0.10.x"
