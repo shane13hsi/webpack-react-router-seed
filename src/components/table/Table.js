@@ -8,18 +8,17 @@ var isEmpty = value => value === undefined || value === null || value === '';
 
 var getCellValue =
       ({ prop, defaultContent, render }, row) => {
-        // Use the render function for the value. Otherwise just return the value.
         var renderContent = render
           ? render(row[prop], row)
           : row[prop];
-        // Return `defaultContent` if the value is empty.
         return !isEmpty(prop) && isEmpty(row[prop]) ? defaultContent : renderContent;
       };
 
 var getCellClass =
       ({ prop, className }, row) => {
-        var clazz = typeof className === 'function' ? className(row[prop], row) :
-          className;
+        var clazz = typeof className === 'function'
+          ? className(row[prop], row)
+          : className;
         return !isEmpty(prop) && isEmpty(row[prop]) ? 'empty-cell' : clazz;
       };
 
@@ -63,12 +62,12 @@ class Table {
     var { columns, keys, buildRowOptions, sortBy, onSort } = this.props;
 
     var headers = columns.map((col, idx) => {
-      var sortProps
+      var sortProps;
       var order;
       // Only add sorting events if the column has a property and is sortable.
-      if (typeof onSort === 'function' &&
-        col.sortable !== false &&
-        'prop' in col) {
+      if (typeof onSort === 'function'
+        && col.sortable !== false
+        && 'prop' in col) {
         sortProps = buildSortProps(col, sortBy, onSort);
         order = sortProps['aria-sort'];
       }
@@ -172,4 +171,4 @@ Table.defaultProps = {
   sortBy: {}
 };
 
-module.exports = Table;
+export default Table;
