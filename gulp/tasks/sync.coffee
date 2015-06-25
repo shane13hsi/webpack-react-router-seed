@@ -27,4 +27,4 @@ gulp.task 'browserSync', ['build-webpack-sync'], ->
 gulp.task('sync', [
     'browserSync'
   ],
-  bg('node', 'src/server/sync'))
+  bg('node', 'server/sync'))
