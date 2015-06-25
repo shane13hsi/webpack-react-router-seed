@@ -8,4 +8,4 @@ gulp.task('build-webpack-dev', webpackDevServer(WebpackConfig))
 gulp.task('dev', [
     'build-webpack-dev'
   ],
-  bg('node', 'server'))
+  bg('node', 'mock-server'))

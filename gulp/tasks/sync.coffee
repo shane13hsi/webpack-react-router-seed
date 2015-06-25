@@ -27,4 +27,4 @@ gulp.task 'browserSync', ['build-webpack-sync'], ->
 gulp.task('sync', [
     'browserSync'
   ],
-  bg('node', 'server/sync'))
+  bg('node', 'mock-server/sync'))

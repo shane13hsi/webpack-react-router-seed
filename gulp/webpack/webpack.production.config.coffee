@@ -4,7 +4,6 @@ webpack = require('webpack')
 NotifyPlugin = require('./notifyplugin')
 
 module.exports =
-
   cache: false
   debug: false
   devtool: ''
