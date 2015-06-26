@@ -22,25 +22,6 @@ var getCellClass =
         return !isEmpty(prop) && isEmpty(row[prop]) ? 'empty-cell' : clazz;
       };
 
-function buildSortProps(col, sortBy, onSort) {
-  var order = sortBy.prop === col.prop ? sortBy.order : 'none';
-  var nextOrder = order === 'ascending' ? 'descending' : 'ascending';
-  var sortEvent = onSort.bind(null, {prop: col.prop, order: nextOrder});
-
-  return {
-    'onClick': sortEvent,
-    // Fire the sort event on enter.
-    'onKeyDown': e => {
-      if (e.keyCode === 13) sortEvent();
-    },
-    // Prevents selection with mouse.
-    'onMouseDown': e => e.preventDefault(),
-    'tabIndex': 0,
-    'aria-sort': order,
-    'aria-label': `${col.title}: activate to sort column ${nextOrder}`
-  };
-}
-
 class Table {
 
   constructor() {
@@ -59,18 +40,9 @@ class Table {
   }
 
   render() {
-    var { columns, keys, buildRowOptions, sortBy, onSort } = this.props;
+    var { columns, keys, buildRowOptions } = this.props;
 
     var headers = columns.map((col, idx) => {
-      var sortProps;
-      var order;
-      // Only add sorting events if the column has a property and is sortable.
-      if (typeof onSort === 'function'
-        && col.sortable !== false
-        && 'prop' in col) {
-        sortProps = buildSortProps(col, sortBy, onSort);
-        order = sortProps['aria-sort'];
-      }
 
       return (
         <th
@@ -78,12 +50,8 @@ class Table {
           key={idx}
           style={{width: col.width}}
           role="columnheader"
-          scope="col"
-          {...sortProps}>
+          scope="col">
           <span>{col.title}</span>
-          {typeof order !== 'undefined' ?
-            <span className={`sort-icon sort-${order}`} aria-hidden="true"/> :
-            null}
         </th>
       );
     });
@@ -102,9 +70,6 @@ class Table {
 
     return (
       <table className={this.props.className}>
-        <caption className="sr-only" role="alert" aria-live="polite">
-          {`Sorted by ${sortBy.prop}: ${sortBy.order} order`}
-        </caption>
         <thead>
         <tr>
           {headers}
@@ -136,7 +101,6 @@ Table.propTypes = {
       PropTypes.number
     ]),
     render: PropTypes.func,
-    sortable: PropTypes.bool,
     defaultContent: PropTypes.string,
     width: PropTypes.oneOfType([
       PropTypes.string,
@@ -153,22 +117,11 @@ Table.propTypes = {
     PropTypes.object
   ])).isRequired,
 
-  buildRowOptions: PropTypes.func,
-
-  sortBy: PropTypes.shape({
-    prop: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    order: PropTypes.oneOf(['ascending', 'descending'])
-  }),
-
-  onSort: PropTypes.func
+  buildRowOptions: PropTypes.func
 };
 
 Table.defaultProps = {
-  buildRowOptions: () => ({}),
-  sortBy: {}
+  buildRowOptions: () => ({})
 };
 
 export default Table;
