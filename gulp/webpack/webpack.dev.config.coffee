@@ -26,7 +26,6 @@ module.exports =
       '.js'
       '.json'
     ]
-    root: constants.SRC_DIR
 
   module:
     loaders: [
