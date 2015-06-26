@@ -6,7 +6,7 @@ NotifyPlugin = require('./notifyplugin')
 module.exports =
   cache: true
   debug: true
-  devtool: ''
+  devtool: 'eval'
 
   entry:
     app: [
@@ -29,6 +29,7 @@ module.exports =
       '.js'
       '.json'
     ]
+    root: constants.SRC_DIR
 
   module:
     loaders: [
