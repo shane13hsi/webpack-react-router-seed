@@ -1,13 +1,12 @@
 jest.dontMock '../Table.js'
-jest.autoMockOff()
+# jest.autoMockOff()
 
 describe 'Table', ->
-  it 'sort on col with prop', ->
+  it 'show "no data" when dataArray is empty', ->
     React = require 'react/addons'
     TestUtils = React.addons.TestUtils
     Table = require '../Table.js'
 
-    onSort = jest.genMockFunction()
     columns = [
       {
         title: 'Test'
@@ -19,16 +18,18 @@ describe 'Table', ->
     shallowRenderer.render `(
       <Table
         columns={columns}
-        onSort={onSort}
-        sortBy={{ order: 'ascending', prop: 'test' }}
         dataArray={[]}
-        keys="test"
+        keys='test'
         />
     )`
-
     component = shallowRenderer.getRenderOutput()
 
-    console.log JSON.stringify(component)
-
-
-
+    expect(component.type).toBe 'table'
+    # table > tbody > tr > td
+    expect(
+      component
+      .props.children[1] # tbody
+      .props.children    # tr
+      .props.children    # td
+      .props.children    # content
+    ).toBe 'No data'
