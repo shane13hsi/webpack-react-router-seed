@@ -1,0 +1,3 @@
+- mock server 目前分成了两个，这个其实很奇怪，猜想可以使用环境变量判断加载的 js 文件；
+- mock json server 需要进行一层封装，目前的 boilerplate 太多；
+- 
