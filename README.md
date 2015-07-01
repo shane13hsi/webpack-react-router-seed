@@ -1,6 +1,6 @@
 [Deprecatedea]
 
-See [gulp-webpack-react-mocha](https://github.com/shane13hsi/gulp-webpack-react-mocha)
+See [gulp-webpack-react](https://github.com/shane13hsi/gulp-webpack-react)
 
 # webpack-react-router-seed
 
