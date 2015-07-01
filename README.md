@@ -1,3 +1,7 @@
+[Deprecatedea]
+
+See [gulp-webpack-react-mocha](https://github.com/shane13hsi/gulp-webpack-react-mocha)
+
 # webpack-react-router-seed
 
 A seed project to get free of wiring up webpack, gulp, webpack-dev-server, react-hot-reload, browser-sync, react, react-router.
