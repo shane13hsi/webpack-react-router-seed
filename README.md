@@ -1,4 +1,4 @@
-[Deprecatedea]
+[Deprecated]
 
 See [gulp-webpack-react](https://github.com/shane13hsi/gulp-webpack-react)
 
